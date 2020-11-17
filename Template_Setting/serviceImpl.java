@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import com.xhwl.entity.$!{tableInfo.name};
+import com.xmty.entity.$!{tableInfo.name};
 /**
  * $!{tableInfo.comment}($!{tableInfo.name})表服务实现类
  *  $!time.currTime()
@@ -89,7 +89,7 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
     /**
      * 通过主键删除数据
      *
-     * @param $!pk.name 主键
+     * @param $!tool.firstLowerCase($!{tableInfo.name})
      * @return 是否成功
      */
     @Override

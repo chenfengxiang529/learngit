@@ -13,7 +13,7 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/dao"))
 
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
-import com.xhwl.entity.$!{tableInfo.name};
+import com.xmty.entity.$!{tableInfo.name};
 /**
  * $!{tableInfo.comment}($!{tableInfo.name})表数据库访问层
  *  $!time.currTime()
@@ -25,7 +25,7 @@ public interface $!{tableName} {
      *
      * @return 实例对象
      */
-    $!{tableInfo.name} queryById($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    $!{tableInfo.name} queryById(@Param("id") String id);
 
     /**
      * 查询指定行数据

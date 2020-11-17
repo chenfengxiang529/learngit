@@ -12,7 +12,7 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/controller"))
 
 import $!{tableInfo.savePackageName}.service.$!{tableInfo.name}Service;
 import org.springframework.web.bind.annotation.*;
-import com.xhwl.entity.$!{tableInfo.name};
+import com.xmty.entity.$!{tableInfo.name};
 import javax.annotation.Resource;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 /**
