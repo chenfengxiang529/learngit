@@ -13,9 +13,10 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/service"))
 
 import java.util.List;
 import com.xmty.entity.$!{tableInfo.name};
-/**
- * $!{tableInfo.comment}($!{tableInfo.name})表服务接口
- *  $!time.currTime()
+ /**
+ *  @Description    $!{tableInfo.comment}($!{tableInfo.name})表服务接口
+ *  @author CFX
+ *  @date   $!time.currTime()
  */
 public interface $!{tableName} {
 
@@ -25,8 +26,16 @@ public interface $!{tableName} {
      * @param 
      * @return 实例对象
      */
-    $!{tableInfo.name} queryById($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
-
+    $!{tableInfo.name} queryById($!{pk.type} $!{pk.name});
+    
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return 对象列表
+     */
+    List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    
     /**
      * 查询多条数据
      *
@@ -35,14 +44,7 @@ public interface $!{tableName} {
      * @return 对象列表
      */
     List<$!{tableInfo.name}> queryAllByLimit(int offset, int limit);
-/**
-     * 通过实体作为筛选条件查询
-     *
-     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 对象列表
-     */
-    List<$!{tableInfo.name}> queryAll($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
-    $!{tableInfo.name} query($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    
     /**
      * 新增数据
      *
@@ -50,6 +52,14 @@ public interface $!{tableName} {
      * @return 实例对象
      */
     $!{tableInfo.name} insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    
+    /**
+     * 根据参数新增数据
+     *
+     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return 实例对象
+     */
+    $!{tableInfo.name} insertForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 
     /**
      * 修改数据
@@ -61,10 +71,15 @@ public interface $!{tableName} {
 
     /**
      * 通过主键删除数据
-     *
-     * @param 
-     * @return 是否成功
+     * @param   $!{pk.name}
+     * @return  是否成功
      */
-    boolean deleteById($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
-     boolean delete($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    boolean deleteById($!{pk.type} $!{pk.name});
+    
+    /**
+     * 通过实例对象删除数据(不推荐)
+     * @param   $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return  是否成功
+     */
+    boolean deleteForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 }

@@ -30,14 +30,24 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
     /**
      * 通过ID查询单条数据
      *
-     * @param 
-     * @return 实例对象
+     * @param   $!{pk.name}
+     * @return  实例对象
      */
     @Override
-    public $!{tableInfo.name} queryById($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
-        return this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryById($!tool.firstLowerCase($!{tableInfo.name}));
+    public $!{tableInfo.name} queryById($!{pk.type} $!{pk.name}) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryById($!{pk.name});
     }
-
+    
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return 对象列表
+     */
+   public List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})){
+           return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryByParameter($!tool.firstLowerCase($!{tableInfo.name}));
+   }
+    
     /**
      * 查询多条数据
      *
@@ -47,33 +57,31 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public List<$!{tableInfo.name}> queryAllByLimit(int offset, int limit) {
-        return this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryAllByLimit(offset, limit);
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryAllByLimit(offset, limit);
     }
-/**
-     * 通过实体作为筛选条件查询
-     *
-     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 对象列表
-     */
-   public List<$!{tableInfo.name}> queryAll($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})){
-           return this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryAll($!tool.firstLowerCase($!{tableInfo.name}));
-   }
-   
-    public $!{tableInfo.name} query($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})){
-           return this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.query($!tool.firstLowerCase($!{tableInfo.name}));
-   }
+
     /**
      * 新增数据
      *
-     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 实例对象
+     * @param   $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return  是否成功
      */
     @Override
-    public $!{tableInfo.name} insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
-        this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.insert($!tool.firstLowerCase($!{tableInfo.name}));
-        return $!tool.firstLowerCase($!{tableInfo.name});
+    public boolean insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.insert($!tool.firstLowerCase($!{tableInfo.name}));
     }
-
+    
+    /**
+     * 根据参数新增列
+     *
+     * @param   $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return  是否成功
+     */
+    @Override
+    public boolean insertForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.insert($!tool.firstLowerCase($!{tableInfo.name})) > 0;
+    }
+    
     /**
      * 修改数据
      *
@@ -81,24 +89,23 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      * @return 实例对象
      */
     @Override
-    public $!{tableInfo.name} update($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
-        this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.update($!tool.firstLowerCase($!{tableInfo.name}));
-        return this.queryById($!tool.firstLowerCase($!{tableInfo.name}));
+    public boolean update($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.update($!tool.firstLowerCase($!{tableInfo.name})) > 0;
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param $!tool.firstLowerCase($!{tableInfo.name})
-     * @return 是否成功
+     * @param   $!{pk.name}
+     * @return  是否成功
      */
     @Override
-    public boolean deleteById($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
-        return this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!tool.firstLowerCase($!{tableInfo.name})) > 0;
+    public boolean deleteById($!{pk.type} $!{pk.name}) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!{pk.name}) > 0;
     }
     
     @Override
     public boolean delete($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
-        return this.$!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!tool.firstLowerCase($!{tableInfo.name})) > 0;
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!tool.firstLowerCase($!{tableInfo.name})) > 0;
     }
 }

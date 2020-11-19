@@ -1,0 +1,35 @@
+[
+    {
+        "auth": "xhwl%123",
+        "host": "192.168.0.137",
+        "keys_pattern": "*",
+        "name": "137",
+        "namespace_separator": ":",
+        "port": 6379,
+        "ssh_port": 22,
+        "timeout_connect": 60000,
+        "timeout_execute": 60000
+    },
+    {
+        "auth": "xhwl%123",
+        "host": "192.168.0.137",
+        "keys_pattern": "*",
+        "name": "测试",
+        "namespace_separator": ":",
+        "port": 6379,
+        "ssh_port": 22,
+        "timeout_connect": 60000,
+        "timeout_execute": 60000
+    },
+    {
+        "auth": "Max867690646",
+        "host": "r-bp1u2ybvgeheyk6jp1pd.redis.rds.aliyuncs.com",
+        "keys_pattern": "*",
+        "name": "r-bp1u2ybvgeheyk6jp1pd.redis.rds.aliyuncs.com",
+        "namespace_separator": ":",
+        "port": 6379,
+        "ssh_port": 22,
+        "timeout_connect": 60000,
+        "timeout_execute": 60000
+    }
+]

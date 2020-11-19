@@ -15,17 +15,26 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import com.xmty.entity.$!{tableInfo.name};
 /**
- * $!{tableInfo.comment}($!{tableInfo.name})表数据库访问层
- *  $!time.currTime()
+ *  @Description    $!{tableInfo.comment}($!{tableInfo.name})表数据库访问层
+ *  @author CFX
+ *  @date   $!time.currTime()
  */
 public interface $!{tableName} {
 
     /**
      * 通过ID查询单条数据
-     *
+     * @param $!{pk.name}
      * @return 实例对象
      */
-    $!{tableInfo.name} queryById(@Param("id") String id);
+    $!{tableInfo.name} queryById(@Param("$!{pk.name}") $!{pk.type} $!{pk.name});
+
+    /**
+     * 查询指定行数据
+     *
+     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return 对象列表
+     */
+    List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 
     /**
      * 查询指定行数据
@@ -36,15 +45,6 @@ public interface $!{tableName} {
      */
     List<$!{tableInfo.name}> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
-
-    /**
-     * 通过实体作为筛选条件查询
-     *
-     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 对象列表
-     */
-    List<$!{tableInfo.name}> queryAll($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
-    $!{tableInfo.name} query($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
     /**
      * 新增数据
      *
@@ -52,6 +52,14 @@ public interface $!{tableName} {
      * @return 影响行数
      */
     int insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    
+    /**
+     * 新增数据
+     *
+     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return 影响行数
+     */
+    int insertForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 
     /**
      * 修改数据
@@ -63,14 +71,15 @@ public interface $!{tableName} {
 
     /**
      * 通过主键删除数据
-     *
+     * @Param  $!{pk.name}
      * @return 影响行数
      */
-    int deleteById($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
-/**
+    int deleteById(@Param("$!{pk.name}") $!{pk.type} $!{pk.name});
 
-     *
+    /**
+     * 通过实例对象删除数据(不推荐)
+     * @Param  $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
      * @return 影响行数
      */
-    int delete($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    int deleteForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 }
