@@ -13,7 +13,7 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/dao"))
 
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
-import com.xmty.entity.$!{tableInfo.name};
+import com.xmty.system.entity.$!{tableInfo.name};
 /**
  *  @Description    $!{tableInfo.comment}($!{tableInfo.name})表数据库访问层
  *  @author CFX
@@ -35,6 +35,12 @@ public interface $!{tableName} {
      * @return 对象列表
      */
     List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    
+    /**
+     * 查询指定行数据
+     * @return 对象列表
+     */
+    List<$!{tableInfo.name}> queryAllList();
 
     /**
      * 查询指定行数据

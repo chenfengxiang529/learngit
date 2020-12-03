@@ -12,7 +12,7 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/service"))
 #if($tableInfo.savePackageName)package $!{tableInfo.savePackageName}.#{end}service;
 
 import java.util.List;
-import com.xmty.entity.$!{tableInfo.name};
+import com.xmty.system.entity.$!{tableInfo.name};
  /**
  *  @Description    $!{tableInfo.comment}($!{tableInfo.name})表服务接口
  *  @author CFX
@@ -37,6 +37,13 @@ public interface $!{tableName} {
     List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
     
     /**
+     * 查询所有数据
+     *
+     * @return 对象列表
+     */
+    List<$!{tableInfo.name}> queryAllList();
+    
+    /**
      * 查询多条数据
      *
      * @param offset 查询起始位置
@@ -49,25 +56,25 @@ public interface $!{tableName} {
      * 新增数据
      *
      * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 实例对象
+     * @return 是否成功
      */
-    $!{tableInfo.name} insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    boolean insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
     
     /**
      * 根据参数新增数据
      *
      * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 实例对象
+     * @return 是否成功
      */
-    $!{tableInfo.name} insertForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    boolean insertForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 
     /**
      * 修改数据
      *
      * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 实例对象
+     * @return 是否成功
      */
-    $!{tableInfo.name} update($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    boolean update($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
 
     /**
      * 通过主键删除数据
