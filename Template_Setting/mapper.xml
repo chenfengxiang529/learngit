@@ -31,12 +31,12 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
             and $!column.obj.name = #{$!column.name}
         </if>
 #end
-        <if test="beginTime != null and beginTime != ''">
+        <!-- <if test="beginTime != null and beginTime != ''">
             <![CDATA[AND create_time >= #{beginTime}]]>
             </if>
         <if test="endTime != null and endTime != ''">
             <![CDATA[AND create_time <= #{endTime}]]>
-        </if>
+        </if> -->
     </sql>
     
     <!--根据ID查询-->
@@ -56,6 +56,13 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         <where>
             <include refid="common_where_if"/>
         </where>
+    </select>
+    
+    <!--查询所有数据-->
+    <select id="queryAllList" resultMap="$!{tableInfo.name}Map">
+        select #allSqlColumn() 
+        
+        from $!tableInfo.obj.name order by create_time desc 
     </select>
     
     <!--查询指定行数据-->

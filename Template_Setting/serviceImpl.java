@@ -39,14 +39,24 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
     }
     
     /**
-     * 通过实体作为筛选条件查询
-     *
-     * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
-     * @return 对象列表
-     */
-   public List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})){
-           return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryByParameter($!tool.firstLowerCase($!{tableInfo.name}));
-   }
+    * 通过实体作为筛选条件查询
+    *
+    * @param $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+    * @return 对象列表
+    */
+    @Override
+    public List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})){
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryByParameter($!tool.firstLowerCase($!{tableInfo.name}));
+    }
+    
+    /**
+    * 查询多条数据
+    * @return 对象列表
+    */
+    @Override
+    public List<$!{tableInfo.name}> queryAllList() {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.queryAllList();
+    }
     
     /**
      * 查询多条数据
@@ -68,7 +78,7 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public boolean insert($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.insert($!tool.firstLowerCase($!{tableInfo.name}));
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.insert($!tool.firstLowerCase($!{tableInfo.name})) > 0;
     }
     
     /**
@@ -103,7 +113,11 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
     public boolean deleteById($!{pk.type} $!{pk.name}) {
         return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!{pk.name}) > 0;
     }
+<<<<<<< HEAD
 	
+=======
+    
+>>>>>>> dfe53b03f956f4e5d740279ee1e809d95ef871e0
     /**
      * 通过实例对象删除数据(不推荐)
      * @param   $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
@@ -111,6 +125,10 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public boolean deleteForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
+<<<<<<< HEAD
         return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!tool.firstLowerCase($!{tableInfo.name})) > 0;
+=======
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteForParameter($!tool.firstLowerCase($!{tableInfo.name})) > 0;
+>>>>>>> dfe53b03f956f4e5d740279ee1e809d95ef871e0
     }
 }

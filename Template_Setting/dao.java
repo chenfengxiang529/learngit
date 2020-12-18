@@ -35,6 +35,12 @@ public interface $!{tableName} {
      * @return 对象列表
      */
     List<$!{tableInfo.name}> queryByParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name}));
+    
+    /**
+     * 查询指定行数据
+     * @return 对象列表
+     */
+    List<$!{tableInfo.name}> queryAllList();
 
     /**
      * 查询指定行数据
