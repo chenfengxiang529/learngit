@@ -12,7 +12,7 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/service"))
 #if($tableInfo.savePackageName)package $!{tableInfo.savePackageName}.#{end}service;
 
 import java.util.List;
-import com.xmty.entity.$!{tableInfo.name};
+import com.xmty.system.entity.$!{tableInfo.name};
  /**
  *  @Description    $!{tableInfo.comment}($!{tableInfo.name})表服务接口
  *  @author CFX

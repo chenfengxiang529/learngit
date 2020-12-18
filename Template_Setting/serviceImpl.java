@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import com.xmty.entity.$!{tableInfo.name};
+import com.xmty.system.entity.$!{tableInfo.name};
 /**
  * $!{tableInfo.comment}($!{tableInfo.name})表服务实现类
  *  $!time.currTime()
@@ -103,9 +103,14 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
     public boolean deleteById($!{pk.type} $!{pk.name}) {
         return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!{pk.name}) > 0;
     }
-    
+	
+    /**
+     * 通过实例对象删除数据(不推荐)
+     * @param   $!tool.firstLowerCase($!{tableInfo.name}) 实例对象
+     * @return  是否成功
+     */
     @Override
-    public boolean delete($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
+    public boolean deleteForParameter($!{tableInfo.name} $!tool.firstLowerCase($!{tableInfo.name})) {
         return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!tool.firstLowerCase($!{tableInfo.name})) > 0;
     }
 }
